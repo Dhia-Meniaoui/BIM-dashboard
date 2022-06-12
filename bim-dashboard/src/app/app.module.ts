@@ -8,10 +8,9 @@ import {HeaderComponent} from './header/header.component';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {FooterComponent} from './footer/footer.component';
-import {EventsModule} from './modules/events/events.module';
+import {NewsModule} from './modules/News/news.module';
 import {AnalyticsModule} from './modules/analytics/analytics.module';
 import {AccessoriesModule} from './modules/accessories/accessories.module';
-import {MoovobrainModule} from './modules/moovobrain/moovobrain.module';
 import {JobInternshipModule} from './modules/job-internship/job-internship.module';
 import {ClientsModule} from './modules/clients/clients.module';
 import {TeamMembersModule} from './modules/team-members/team-members.module';
@@ -39,9 +38,8 @@ import {PartnersModule} from './modules/partners/partners.module';
     RouterModule,
     AppRoutingModule,
     AnalyticsModule,
-    EventsModule,
+    NewsModule,
     AccessoriesModule,
-    MoovobrainModule,
     PartnersModule,
     JobInternshipModule,
     ClientsModule,

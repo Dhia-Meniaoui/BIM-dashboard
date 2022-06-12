@@ -10,6 +10,9 @@ import {ToastService} from '../../shared/services/toast.service';
   styleUrls: ['./clients-list.component.css']
 })
 export class ClientsListComponent implements OnInit, AfterViewInit {
+
+
+  servicesArray: ServiceRequest[] = [];
   form: FormGroup;
   isLoading = false;
 

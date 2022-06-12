@@ -17,6 +17,14 @@ export class ClientRequestsHttpService {
   constructor(private urlService: HostUrlService, private http: HttpClient, private listViewLoaderService: ListViewLoaderService) {
   }
 
+
+  fetchAllUsers() {
+    return this.http.get(this.url + '/Users');
+  }
+
+
+
+
   getAllServiceRequests() {
     // if the requests are fetched we do not fetch them again
     if (this.requestsFetched === 3) {

@@ -1,13 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ComingEventsComponent} from '../../coming-events/coming-events.component';
 import {ArticlesComponent} from '../../articles/articles.component';
 
 
 const routes: Routes = [
-  {path: '', component: ComingEventsComponent, pathMatch: 'full'},
+  {path: '', component: ArticlesComponent, pathMatch: 'full'},
   {path: 'articles', component: ArticlesComponent},
-  {path: 'events', component: ComingEventsComponent},
   {path : '**' , redirectTo: 'articles'}
 ];
 
@@ -15,5 +13,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EventsRoutingModule {
+export class NewsRoutingModule {
 }
