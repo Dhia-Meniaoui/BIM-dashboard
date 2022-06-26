@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HostUrlService} from '../shared/services/host-url.service';
 import {HttpClient} from '@angular/common/http';
-import {ServiceRequest} from '../shared/models/service-request.model';
+import {Agencie} from '../shared/models/agencie.model';
 import {ListViewLoaderService} from '../list-view-loader.service';
 
 @Injectable({
@@ -9,7 +9,7 @@ import {ListViewLoaderService} from '../list-view-loader.service';
 })
 export class PartnerRequestsHttpService {
   url = this.urlService.url;
-  serviceRequestsArray: ServiceRequest[] = [];
+  AgencieArray: Agencie[] = [];
 
   constructor(
     private urlService: HostUrlService,

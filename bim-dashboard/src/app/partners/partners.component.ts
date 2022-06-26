@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ScriptsLoaderService} from '../scripts-loader.service';
-import {ClientRequestsHttpService} from '../clients/client-requests-http.service';
 import {ToastService} from '../shared/services/toast.service';
-import {ServiceRequest} from '../shared/models/service-request.model';
+import {Agencie} from '../shared/models/agencie.model';
 import {ListViewLoaderService} from '../list-view-loader.service';
 import {PartnerRequestsHttpService} from './partner-requests-http.service';
 
@@ -17,7 +16,7 @@ export class PartnersComponent implements OnInit {
   partnersList: any;
 
   selectedElementIndex = 0;
-  servicesArray: ServiceRequest[] = [];
+  AgencieArray: Agencie[] = [];
 
   constructor(
     private listViewLoaderService: ListViewLoaderService,
@@ -31,7 +30,7 @@ export class PartnersComponent implements OnInit {
     // every time we init this component and data is already fetched
     this.listViewLoaderService.loadDataListViewScript().then();
     this.listViewLoaderService.loadStylesheets();
-    this.servicesArray = this.httpRequest.serviceRequestsArray;
+    this.AgencieArray = this.httpRequest.AgencieArray;
     this.httpRequest.getAll().subscribe(partners =>{
       this.partnersList = partners;
       console.log(this.partnersList);

@@ -10,9 +10,9 @@ import {AppRoutingModule} from './app-routing.module';
 import {FooterComponent} from './footer/footer.component';
 import {NewsModule} from './modules/News/news.module';
 import {AnalyticsModule} from './modules/analytics/analytics.module';
-import {AccessoriesModule} from './modules/accessories/accessories.module';
+import {OffersModule} from './modules/offers/offers.module';
 import {JobInternshipModule} from './modules/job-internship/job-internship.module';
-import {ClientsModule} from './modules/clients/clients.module';
+import {UsersModule} from './modules/users/users.module';
 import {TeamMembersModule} from './modules/team-members/team-members.module';
 import {SignInModule} from './modules/sign-in/sign-in.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -39,10 +39,10 @@ import {PartnersModule} from './modules/partners/partners.module';
     AppRoutingModule,
     AnalyticsModule,
     NewsModule,
-    AccessoriesModule,
+    OffersModule,
     PartnersModule,
     JobInternshipModule,
-    ClientsModule,
+    UsersModule,
     TeamMembersModule,
     SignInModule,
     HttpClientModule,

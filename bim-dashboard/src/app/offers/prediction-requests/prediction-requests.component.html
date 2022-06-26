@@ -1,0 +1,133 @@
+<!-- BEGIN: Content-->
+<div class="app-content content">
+  <div class="content-overlay"></div>
+  <div class="header-navbar-shadow"></div>
+  <div class="content-wrapper">
+
+    <div class="content-body">
+      <!-- Data list view starts -->
+      <section id="data-list-view" class="data-list-view-header">
+
+
+        <!-- DataTable starts -->
+        <div class="table-responsive">
+          <table class="table data-list-view">
+            <thead>
+            <tr>
+              <th></th>
+              <th>ID</th>
+              <th>owner</th>
+              <th>owner email</th>
+              <th>owner phone</th>
+              <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let offer of OffersList ; let i = index" [id]="'order-'+i">
+              <td></td>
+              <td class="product-name action-edit" (click)="listItemClicked(i)">{{ offer._id }}</td>
+              <td class="product-category action-edit"
+                  (click)="listItemClicked(i)">{{ offer.offer.owner.username }}</td>
+              <td class="product-category action-edit"
+                  (click)="listItemClicked(i)">{{ offer.offer.owner.email }}</td>
+             <td class="product-category action-edit"
+                  (click)="listItemClicked(i)">{{ offer.offer.owner.country }}</td>
+                  <td class="product-category action-edit"
+                  (click)="listItemClicked(i)">{{ offer.offer.date }}</td>
+              <td class="product-action">
+                <button href="#" class="btn btn-primary shadow" data-toggle="modal" data-target="#danger-2" (click)="selectedElementIndex = i ">View Details <i class="feather icon-chevrons-right"></i></button>
+
+
+                
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- DataTable ends -->
+
+
+
+
+<!-- confirmation modal -->
+<div class="modal fade text-left" id="danger-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel110"
+     style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary white">
+        <h5 class="modal-title" id="myModalLabel110">Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12 data-field-col" *ngIf="getSelectedElement()">
+
+            <label class="text-dark text-bold-600">Category</label>
+            <p class="text-62">{{getSelectedElement().offer.House.Lodging.Category}}</p>
+            <hr>
+            <label class="text-dark text-bold-600">Construction_year</label>
+            <p class="text-62">{{getSelectedElement().offer.House.Lodging.Construction_year}}</p>
+            <hr>
+            <label class="text-dark text-bold-600">area</label>
+            <p class="text-62">{{getSelectedElement().offer.House.Lodging.area}}</p>
+            <hr>
+            <label class="text-dark text-bold-600">location</label>
+            <p class="text-62">{{getSelectedElement().offer.House.Lodging.location}}</p>
+            <hr>
+            <label class="text-dark text-bold-600">model</label>
+            <p class="text-62">{{getSelectedElement().offer.House.Lodging.model}}</p>
+            <hr>
+            <label class="text-dark text-bold-600">description</label>
+            <p class="text-62">{{getSelectedElement().offer.Description}}</p>
+            <hr>
+            <label class="text-dark text-bold-600">price</label>
+            <p class="text-62">{{getSelectedElement().cost}}</p>
+            <hr>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary shadow" (click)="predictanoffer()" data-dismiss="modal" data-toggle="modal" data-target="#prediction_res">predict
+        </button>
+        <button type="button" class="btn btn-primary shadow"  data-dismiss="modal">approve
+        </button>
+        <button type="button" class="btn btn-outline-danger waves-effect waves-light"  data-dismiss="modal">Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- prediction -->
+<div class="modal fade text-left" id="prediction_res" tabindex="-1" role="dialog" aria-labelledby="myModalLabel110"
+     style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary white">
+        <h5 class="modal-title" id="myModalLabel110">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Price of the offer:  {{getSelectedElement().cost}}
+      </div>
+      <div class="modal-body">
+        Price predicted:  {{ resultat }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary waves-effect waves-light"
+                 data-dismiss="modal">
+          approve
+        </button>
+        <button type="button" class="btn btn-outline-danger waves-effect waves-light" data-dismiss="modal">Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

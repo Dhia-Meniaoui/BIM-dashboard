@@ -6,4 +6,5 @@ export interface Agencie {
   createdAt: Date;
   updatedAt: Date;
   id: string;
+  partner: false;
 }
