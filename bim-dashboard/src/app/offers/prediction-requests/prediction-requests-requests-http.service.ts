@@ -22,11 +22,13 @@ export class AuthUsersRequestsHttpService {
   deleteOffer(id: string) {
     return this.http.delete(this.url + '/partners/' + id);
   }
-  sendprediction(data) {
-    
-    console.log("dhia"); 
+
+  approveOffer(data){
     console.log(data);
-    
+    return this.http.post(this.url + '/admin/approveoffer' , {data});
+  }
+
+  sendprediction(data) {    
     return this.http.post(this.url + '/admin/prediction' , {data});
   }
 }

@@ -20,7 +20,7 @@ export class PredictionRequestsComponent implements OnInit {
   selectedElementIndex = 0;
   selectedoffer : Buy;
   OfferArray: Buy[] = [];
-  resultat = "ds" ;
+  resultat = "wait..." ;
 
   constructor(private scriptsLoaderService: ScriptsLoaderService,
     private listViewLoaderService: ListViewLoaderService,
@@ -37,12 +37,14 @@ export class PredictionRequestsComponent implements OnInit {
     this.OffersList = this.httpRequest.OffersArray;
     this.httpRequest.getAll().subscribe(offers =>{
       this.OffersList = offers;
-      console.log(this.OffersList);
+      console.log(offers);
     });
   }
 
 
-  getSelectedElement() {
+
+
+  getSelectedElement() { 
     return this.OffersList[this.selectedElementIndex];
   }
 
@@ -61,6 +63,15 @@ export class PredictionRequestsComponent implements OnInit {
     this.httpRequest.deleteOffer(this.getSelectedElement()._id).subscribe(val =>
       this.OffersList.splice(this.selectedElementIndex, 1)
     );
+  }
+
+  apporverequest(){
+    console.log("asda");
+    
+    const data = this.getSelectedElement()
+    const res = this.httpRequest.approveOffer(data).subscribe(val => {console.log(val) ; this.resultat = JSON.stringify(val);});;
+    console.log(res);
+    window.location.reload();
   }
 
   predictanoffer() {
